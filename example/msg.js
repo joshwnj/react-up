@@ -1,8 +1,7 @@
 'use strict';
 
 const React = require('react');
-
-const Msg = React.createClass({
+module.exports = React.createClass({
   getDefaultProps () {
     return {
       text: 'MSG GOES HERE'
@@ -15,20 +14,3 @@ const Msg = React.createClass({
     );
   }
 });
-
-module.exports = function (setProps) {
-  return {
-    createComponent: function (props) {
-      return React.createElement(Msg, props);
-    },
-
-    receiveInitialState: function (state) {
-      setProps(state);
-    },
-
-    receiveChange: function (change) {
-      console.log('change', change);
-      setProps(change);
-    }
-  };
-};
