@@ -1,16 +1,23 @@
 'use strict';
 
 const React = require('react');
+
 module.exports = React.createClass({
+  displayName: 'Msg',
+
   getDefaultProps () {
     return {
-      text: 'MSG GOES HERE'
+      heading: 'Default heading',
+      text: '... msg goes here ...'
     };
   },
 
   render () {
     return (
-      <p>{this.props.text}</p>
+      <div>
+        <h1>{this.props.heading}</h1>
+        <p>{this.props.text}</p>
+      </div>
     );
   }
 });
