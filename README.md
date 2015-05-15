@@ -37,10 +37,10 @@ npm i -g watch-json
 watch-json props.json | reactup path/to/component.js
 ```
 
-JSX and ES6
+`jsx` and `es6`
 ----
 
-Before sending to the browser we transform the component file with `browserify` and `babelify` so all of your jsx and es6 should work without a hitch (but please let me know if it doesn't!).
+Before sending to the browser we transform the component file with [`browserify`](https://npmjs.com/package/browserify) and [`babelify`](https://npmjs.com/package/babelify) so all of your jsx and es6 should work without a hitch (but please [let me know](https://github.com/joshwnj/react-up/issues/new) if it doesn't!).
 
 
 License
