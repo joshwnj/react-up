@@ -37,6 +37,8 @@ npm i -g watch-json
 watch-json props.json | reactup path/to/component.js
 ```
 
+![example of live-reloading props using watch-json](https://github.com/joshwnj/react-up/blob/master/example/react-up.gif)
+
 `jsx` and `es6`
 ----
 
