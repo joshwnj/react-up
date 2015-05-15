@@ -4,6 +4,7 @@
   "description": "Whip up a react component for quick standalone display",
   "main": "index.js",
   "bin": {
+    "reactup": "./bin/react-up",
     "react-up": "./bin/react-up"
   },
   "directories": {
