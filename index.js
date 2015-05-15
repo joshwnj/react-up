@@ -1,17 +1,21 @@
 'use strict';
 
-const path = require('path');
-
-const port = process.env.PORT || 8000;
-const widgetFilename = path.resolve(process.argv[2]);
-
 const ndjson = require('ndjson');
-const changeEmitter = require('./lib/change-emitter')();
-process.stdin.pipe(ndjson.parse())
-  .on('data', changeEmitter.emitChange.bind(changeEmitter));
+const setupHttp = require('./lib/http-server');
+const setupSocket = require('./lib/setup-socket');
 
-const httpServer = require('./lib/http-server')(widgetFilename);
-require('./lib/setup-socket')(httpServer, changeEmitter);
+module.exports = function (filename, opts, cb) {
+  const changeEmitter = require('./lib/change-emitter')();
 
-httpServer.listen(port);
-console.log('Ready on :%d', port);
+  if (opts.inStream) {
+    opts.inStream.pipe(ndjson.parse())
+      .on('data', changeEmitter.emitChange.bind(changeEmitter))
+      .on('error', cb);
+  }
+
+  const httpServer = setupHttp(filename);
+  setupSocket(httpServer, changeEmitter);
+
+  httpServer.listen(opts.port);
+  cb();
+}
