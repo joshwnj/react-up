@@ -1,16 +1,19 @@
 {
-  "name": "react-widget",
+  "name": "react-up",
   "version": "1.0.0",
-  "description": "",
+  "description": "Whip up a react component for quick standalone display",
   "main": "index.js",
+  "bin": {
+    "react-up": "./bin/react-up"
+  },
   "directories": {
     "example": "example"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "joshwnj",
+  "license": "MIT",
   "dependencies": {
     "babelify": "^6.0.2",
     "browserify": "^9.0.8",

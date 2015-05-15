@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const port = process.env.PORT || 8000;
+
+if (!process.argv[2]) {
+  console.error('Usage: react-up $FILENAME');
+  process.exit();
+}
+
+const filename = path.resolve(process.argv[2]);
+const opts = {
+  port: port,
+  inStream: process.stdin
+};
+
+require('../')(filename, opts, function (err) {
+  if (err) {
+    console.error(err);
+    process.exit();
+  }
+
+  console.log('Ready at http://localhost:%d', port);
+});
