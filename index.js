@@ -18,9 +18,9 @@ module.exports = function (filename, opts, cb) {
   // warm the cache
   buildJs();
 
-  const httpServer = setupHttp(filename, buildJs);
+  const httpServer = setupHttp(buildJs);
   setupSocket(httpServer, changeEmitter, buildJs);
 
   httpServer.listen(opts.port);
   cb();
-}
+};
