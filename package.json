@@ -11,6 +11,9 @@
     "example": "example"
   },
   "scripts": {
+    "build": "browserify -t babelify -o core.build.js -r react -r ./lib/core.js:react-up/core",
+    "build-watch": "watchify -d -v -t babelify -o core.build.js -r react -r ./lib/core.js:react-up/core",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "joshwnj",
