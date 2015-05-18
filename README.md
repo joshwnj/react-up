@@ -20,6 +20,12 @@ Port can be customized with `PORT` environment variable:
 PORT=5432 reactup component.js
 ```
 
+Hot reloading
+----
+
+Any changes made to the source component (or other modules `require`'d by the component) are live-reloaded in the page.
+
+
 Setting props
 ----
 
