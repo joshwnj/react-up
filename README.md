@@ -14,17 +14,21 @@ then run:
 reactup path/to/component.js
 ```
 
-Port can be customized with `PORT` environment variable:
+### Options
+
+- `--port`: sets the http port (default: 8000)
+- `--css`: path to a css file which will be used on the page. The file is also hot-loaded if any changes are made to it.
+
+Eg.
 
 ```
-PORT=5432 reactup component.js
+reactup --port=5432 --css=theme.css path/to/component.js
 ```
 
 Hot reloading
 ----
 
 Any changes made to the source component (or other modules `require`'d by the component) are live-reloaded in the page.
-
 
 Setting props
 ----
