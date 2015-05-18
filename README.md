@@ -25,10 +25,12 @@ Eg.
 reactup --port=5432 --css=theme.css path/to/component.js
 ```
 
-Hot reloading
+Live reloading
 ----
 
 Any changes made to the source component (or other modules `require`'d by the component) are live-reloaded in the page.
+
+![example of live-reloading props, css and components](https://github.com/joshwnj/react-up/blob/master/example/reactup-1-1.gif)
 
 Setting props
 ----
@@ -46,8 +48,6 @@ npm i -g watch-json
 
 watch-json props.json | reactup path/to/component.js
 ```
-
-![example of live-reloading props using watch-json](https://github.com/joshwnj/react-up/blob/master/example/react-up.gif)
 
 `jsx` and `es6`
 ----
