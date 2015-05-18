@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const port = process.env.PORT || 8000;
+const argv = require('minimist')(process.argv.slice(2));
 
-if (!process.argv[2]) {
+if (!argv._[0]) {
   console.error('Usage: react-up $FILENAME');
   process.exit();
 }
 
-const filename = path.resolve(process.argv[2]);
+const port = process.env.PORT || argv.port || 8000;
+const filename = path.resolve(argv._[0]);
+const cssPath = argv.css ? path.resolve(argv.css) : null;
+
 const opts = {
-  port: port,
-  inStream: process.stdin
+  cssPath: cssPath,
+  inStream: process.stdin,
+  port: port
 };
 
 require('../')(filename, opts, function (err) {
