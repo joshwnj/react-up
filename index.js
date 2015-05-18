@@ -13,8 +13,13 @@ module.exports = function (filename, opts, cb) {
       .on('error', cb);
   }
 
-  const httpServer = setupHttp(filename);
-  setupSocket(httpServer, changeEmitter);
+  const buildJs = require('./lib/build-js')(filename);
+
+  // warm the cache
+  buildJs();
+
+  const httpServer = setupHttp(filename, buildJs);
+  setupSocket(httpServer, changeEmitter, buildJs);
 
   httpServer.listen(opts.port);
   cb();
