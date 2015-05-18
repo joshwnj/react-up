@@ -14,12 +14,13 @@ module.exports = function (filename, opts, cb) {
   }
 
   const buildJs = require('./lib/build-js')(filename);
+  const buildCss = require('./lib/build-css')(opts.cssPath);
 
   // warm the cache
   buildJs();
 
-  const httpServer = setupHttp(buildJs);
-  setupSocket(httpServer, changeEmitter, buildJs);
+  const httpServer = setupHttp(buildJs, { css: opts.cssPath });
+  setupSocket(httpServer, changeEmitter, buildJs, buildCss);
 
   httpServer.listen(opts.port);
   cb();

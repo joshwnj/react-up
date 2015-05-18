@@ -21,6 +21,7 @@
   "dependencies": {
     "babelify": "^6.1.0",
     "browserify": "^10.2.0",
+    "chokidar": "^1.0.1",
     "concat-stream": "^1.4.8",
     "hyperscript": "^1.4.6",
     "minimist": "^1.1.1",
