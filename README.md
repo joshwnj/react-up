@@ -30,7 +30,7 @@ Live reloading
 
 Any changes made to the source component (or other modules `require`'d by the component) are live-reloaded in the page.
 
-![example of live-reloading props, css and components](https://github.com/joshwnj/react-up/blob/master/example/reactup-1-1.gif)
+![example of live-reloading props, css and components](https://github.com/joshwnj/react-up/blob/master/example/reactup-1-1.gif?raw=true)
 
 Setting props
 ----
