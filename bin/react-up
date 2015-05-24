@@ -24,5 +24,7 @@ require('../')(filename, opts, function (err) {
     process.exit();
   }
 
-  console.log('Ready at http://localhost:%d', port);
+  if (!argv.s) {
+    console.log('Ready at http://localhost:%d', port);
+  }
 });
