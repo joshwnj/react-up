@@ -1,11 +1,11 @@
 'use strict';
 
-const ndjson = require('ndjson');
-const setupHttp = require('./lib/http-server');
-const setupSocket = require('./lib/setup-socket');
+var ndjson = require('ndjson');
+var setupHttp = require('./lib/http-server');
+var setupSocket = require('./lib/setup-socket');
 
 module.exports = function (filename, opts, cb) {
-  const changeEmitter = require('./lib/change-emitter')();
+  var changeEmitter = require('./lib/change-emitter')();
 
   if (opts.inStream) {
     opts.inStream.pipe(ndjson.parse())
@@ -13,13 +13,13 @@ module.exports = function (filename, opts, cb) {
       .on('error', cb);
   }
 
-  const buildJs = require('./lib/build-js')(filename);
-  const buildCss = require('./lib/build-css')(opts.cssPath);
+  var buildJs = require('./lib/build-js')(filename);
+  var buildCss = require('./lib/build-css')(opts.cssPath);
 
   // warm the cache
   buildJs();
 
-  const httpServer = setupHttp(buildJs, { css: opts.cssPath });
+  var httpServer = setupHttp(buildJs, { css: opts.cssPath });
   setupSocket(httpServer, changeEmitter, buildJs, buildCss);
 
   httpServer.listen(opts.port);

@@ -1,7 +1,7 @@
 'use strict';
 
-const React = require('react');
-const MsgBody = require('./msg-body');
+var React = require('react');
+var MsgBody = require('./msg-body');
 
 module.exports = React.createClass({
   displayName: 'Msg',

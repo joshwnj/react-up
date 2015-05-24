@@ -1,9 +1,9 @@
 'use strict';
 
-const React = require('react');
-const Fingdex = require('fingdex');
+var React = require('react');
+var Fingdex = require('fingdex');
 
-const DocList = React.createClass({
+var DocList = React.createClass({
   getDefaultProps: function () {
     return {
       docs: []
@@ -11,7 +11,7 @@ const DocList = React.createClass({
   },
 
   render: function () {
-    let docs = this.props.docs.map(function (item, i) {
+    var docs = this.props.docs.map(function (item, i) {
       return <li key={item._id}>{item._id} ({item._type})</li>
     });
 
@@ -49,7 +49,7 @@ module.exports = function (setProps) {
 
       this.docIndex.through(change);
 
-      let docs = getDocList(this.docIndex.getSnapshot());
+      var docs = getDocList(this.docIndex.getSnapshot());
       setProps({ docs: docs });
     }
   };
