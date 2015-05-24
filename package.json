@@ -1,6 +1,6 @@
 {
   "name": "react-up",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Whip up a react component for quick standalone display",
   "main": "index.js",
   "bin": {
