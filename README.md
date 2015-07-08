@@ -25,6 +25,21 @@ Eg.
 reactup --port=5432 --css=theme.css path/to/component.js
 ```
 
+API Usage
+----
+
+```
+var reactup = require('react-up');
+
+reactup(filename, {
+  port: 1234,
+  css: './path/to.css',
+  setupBrowserify: function (b) {
+    // optional function where you can add custom transforms / plugins
+  }
+}, cb);
+```
+
 Live reloading
 ----
 
